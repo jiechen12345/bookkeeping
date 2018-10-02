@@ -79,7 +79,7 @@
                                                            刪除
                                                        </button>-->
                         </td>
-                        <!--/*@thymesVar id="member" type="com.tlg.dto.MemberDto"*/-->
+                        <!--/*@thymesVar id="member" type="com.oppo.dto.MemberDto"*/-->
                         <td th:text="${member.getName()}">1</td>
                         <td th:text="${member.account}">1</td>
                         <td th:text="${member.password}">1</td>
@@ -272,7 +272,7 @@
                     <form class="form-group">
                         <input type="hidden" name="id_m" id="id_m" th:value="${memberDto!=null}?${memberDto.id}">
                         <label>姓名</label>
-                        <!--/*@thymesVar id="name" type="com.tlg.dto.MemberDto"*/-->
+                        <!--/*@thymesVar id="name" type="com.oppo.dto.MemberDto"*/-->
                         <input required="required" th:value="${memberDto!=null}?${memberDto.name}" type="text"
                                name="name_m" id="name_m"
                                class="form-control">

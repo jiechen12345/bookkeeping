@@ -61,7 +61,7 @@
                     <tbody id="list-itens">
 
                     <tr th:each="otherMsg:${otherMsgs}">
-                        <!--/*@thymesVar id="otherMsg" type="com.tlg.dto.OtherMsgDto"*/-->
+                        <!--/*@thymesVar id="otherMsg" type="com.oppo.dto.OtherMsgDto"*/-->
 
                         <td style="width:10%" align="center">
                             <a  href="#" th:href="@{/otherMsg/}+${otherMsg.id}" class="btn btn-sm btn-primary">修改</a>

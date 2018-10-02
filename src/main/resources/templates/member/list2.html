@@ -2,8 +2,7 @@
 <!-- saved from url=(0053)https://getbootstrap.com/docs/4.1/examples/dashboard/ -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
@@ -54,7 +53,7 @@
                                 <input type="hidden" name="id_m" id="id_m"
                                        th:value="${memberDto!=null}?${memberDto.id}">
                                 <label>姓名</label>
-                                <!--/*@thymesVar id="name" type="com.tlg.dto.MemberDto"*/-->
+                                <!--/*@thymesVar id="name" type="com.oppo.dto.MemberDto"*/-->
                                 <input required="required" type="text"
                                        name="name_m" id="name_m"
                                        class="form-control"
@@ -107,7 +106,7 @@
                                                            刪除
                                                        </button>-->
                         </td>
-                        <!--/*@thymesVar id="member" type="com.tlg.dto.MemberDto"*/-->
+                        <!--/*@thymesVar id="member" type="com.oppo.dto.MemberDto"*/-->
                         <td th:text="${member.getName()}">1</td>
                         <td th:text="${member.account}">1</td>
                         <td th:text="${member.password}">1</td>
