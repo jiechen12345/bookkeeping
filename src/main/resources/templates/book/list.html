@@ -45,13 +45,18 @@
                                 <option value="1">收入</option>
                                 <option value="0">支出</option>
                             </select>
-
                         </div>
-                        <div class="col-md-3 mb-1">
+                        <div class="col-md-2 mb-1">
+                            <label for="projectId">客戶單位</label>
+                            <select class="form-control" name="customerId" id="customerId">
+                                <option th:each="customer:${customers}" th:value="${customer.id}"
+                                        th:text="${customer.custNm}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-1">
                             <label for="projectId">專案名稱</label>
                             <select class="form-control" name="projectId" id="projectId">
-                                <option th:each="project:${projects}" th:value="${project.id}"
-                                        th:text="${project.projectName}"></option>
+
                             </select>
                         </div>
                         <div class="col-md-2 mb-1">
@@ -142,13 +147,15 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                     <!--<tr class="table table-striped table-sm">-->
-                    <tr class="table table-striped table-sm" align="center" onclick="'queryOne(\''+${member.id}+'\')'">
+                    <tr class="table table-striped table-sm" align="center">
                         <th>ID</th>
                         <th>廠商發票</th>
                         <th>廠商發票月份</th>
                         <th>發票號碼</th>
                         <th>付款與否</th>
                         <th>付款日期</th>
+                        <th>客戶名稱</th>
+                        <th>專案名稱</th>
                     </tr>
                     </thead>
                     <tbody id="list-itens">
@@ -159,6 +166,8 @@
                         <td th:text="${book.getInvNo()}">1</td>
                         <td th:text="${book.paid}">1</td>
                         <td th:text="${book.paidDat}">1</td>
+                        <td th:text="${book.customerNm}">1</td>
+                        <td th:text="${book.projectName}">1</td>
                     </tr>
                     </tbody>
                 </table>
@@ -264,9 +273,7 @@
         )
         */
     }
-function queryOne() {
-    alert('queryOne');
-}
+
     //元件控制
     function invCl() {
         var invStatus=$('#invoice').val();

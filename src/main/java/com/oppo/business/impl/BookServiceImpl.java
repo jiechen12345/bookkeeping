@@ -54,6 +54,8 @@ public class BookServiceImpl implements BookService {
                                 it.getPaid(),
                                 it.getPaidDat(),
                                 it.getAmt(),
+                                it.getProject().getCustomer().getId(),
+                                it.getProject().getCustomer().getCustNm(),
                                 it.getProject().getId(),
                                 it.getProject().getProjectName(),
                                 it.getDescription(),

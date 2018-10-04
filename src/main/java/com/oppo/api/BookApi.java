@@ -1,8 +1,10 @@
 package com.oppo.api;
 
+import com.oppo.Entity.Customer;
 import com.oppo.Entity.Departemt;
 import com.oppo.Entity.Project;
 import com.oppo.business.BookService;
+import com.oppo.dao.CustomerDao;
 import com.oppo.dao.ProjectDao;
 import com.oppo.dto.BookPage;
 import org.slf4j.Logger;
@@ -26,6 +28,8 @@ public class BookApi {
     @Autowired
     private ProjectDao projectDao;
     @Autowired
+    private CustomerDao customerDao;
+    @Autowired
     private BookService bookService;
 
     //查詢分頁會員列表及修改pageSize
@@ -34,9 +38,9 @@ public class BookApi {
                                  @RequestParam(required = false, defaultValue = "5")Integer pageSize ,Model model) {
         BookPage bookPage = bookService.getAllForm(page,pageSize);
         //List<MemberDto> memberDtoList = memberService.findAll();
-        List<Project> projects = projectDao.findAll();
+        List<Customer> customers = customerDao.findAll();
         model.addAttribute("books", bookPage.getContents());
-        model.addAttribute("projects", projects);
+        model.addAttribute("customers", customers);
         model.addAttribute("indexPage", bookPage.getCurrentPage());
         model.addAttribute("totalPages", bookPage.getTotalPages());
         model.addAttribute("pageSize", pageSize);

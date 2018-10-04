@@ -1,8 +1,6 @@
 package com.oppo.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,12 +10,13 @@ import java.util.List;
 @Entity
 public class Project {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
     private String ProjectName;
-
-    @OneToMany(targetEntity = Book.class, mappedBy = "project")
-    private List<Book> books = new LinkedList<>();
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="CUSTOMER_ID_FK")
+    private Customer customer;
 
     public Integer getId() {
         return id;
@@ -27,13 +26,6 @@ public class Project {
         this.id = id;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 
     public String getProjectName() {
         return ProjectName;
@@ -43,12 +35,20 @@ public class Project {
         ProjectName = projectName;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", ProjectName='" + ProjectName + '\'' +
-                ", books=" + books +
+                ", customer=" + customer +
                 '}';
     }
 }

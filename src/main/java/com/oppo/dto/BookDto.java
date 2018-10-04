@@ -8,7 +8,7 @@ import java.util.Date;
 public class BookDto {
     public BookDto(){}
 
-    public BookDto(String id, String incomeOrExpend, Boolean invoice, String invYM, String invNo, Boolean paid, Date paidDat, Integer amt,Integer projectId, String projectName, String description, String remarks) {
+    public BookDto(String id, String incomeOrExpend, Boolean invoice, String invYM, String invNo, Boolean paid, Date paidDat, Integer amt, Integer customerId, String customerNm, Integer projectId, String projectName, String description, String remarks) {
         this.id = id;
         this.incomeOrExpend = incomeOrExpend;
         this.invoice = invoice;
@@ -17,6 +17,8 @@ public class BookDto {
         this.paid = paid;
         this.paidDat = paidDat;
         this.amt = amt;
+        this.customerId = customerId;
+        this.customerNm = customerNm;
         this.projectId = projectId;
         this.projectName = projectName;
         this.description = description;
@@ -38,6 +40,10 @@ public class BookDto {
     private Date paidDat;
     //金額
     private Integer amt;
+    //客戶ID
+    private Integer customerId;
+    //客戶名稱
+    private String customerNm;
     //專案名稱
     private Integer projectId;
     //專案名稱
@@ -143,9 +149,25 @@ public class BookDto {
         this.projectId = projectId;
     }
 
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerNm() {
+        return customerNm;
+    }
+
+    public void setCustomerNm(String customerNm) {
+        this.customerNm = customerNm;
+    }
+
     @Override
     public String toString() {
-        return "BookReq{" +
+        return "BookDto{" +
                 "id='" + id + '\'' +
                 ", incomeOrExpend='" + incomeOrExpend + '\'' +
                 ", invoice=" + invoice +
@@ -154,6 +176,9 @@ public class BookDto {
                 ", paid=" + paid +
                 ", paidDat=" + paidDat +
                 ", amt=" + amt +
+                ", customerId=" + customerId +
+                ", customerNm=" + customerNm +
+                ", projectId=" + projectId +
                 ", projectName='" + projectName + '\'' +
                 ", description='" + description + '\'' +
                 ", remarks='" + remarks + '\'' +
