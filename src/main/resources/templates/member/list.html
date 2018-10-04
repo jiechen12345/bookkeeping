@@ -184,9 +184,6 @@
                 </li>
             </ul>
 
-
-
-
             <!---小於等於七頁---->
             <ul class="pagination" data-th-if="${totalPages <= 7}">
                 <!-- 上一页 -->
@@ -197,7 +194,7 @@
                     </a>
                 </li>
 
-                <!-- 迭代生成页码 -->
+                <!-- 迭代生成页码2 -->
                 <li class="page-item" data-th-each="i : ${#numbers.sequence(1, totalPages)}"
                     data-th-classappend="${(indexPage) eq i} ? 'active' : ''">
                     <a class="page-link" data-th-attr="pageIndex=${i} - 1"

@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * Created by JieChen on 2018/10/2.
  */
 @Repository
-public interface BookDao extends JpaRepository<Book, Integer>, JpaSpecificationExecutor<Book> {
+public interface BookDao extends JpaRepository<Book, String>, JpaSpecificationExecutor<Book> {
 
 }

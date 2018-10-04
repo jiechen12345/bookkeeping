@@ -8,9 +8,10 @@ import java.util.Date;
  */
 @Entity
 public class Book {
+    //流水號201810030001
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @Column(length = 12)
+    private String id;
     //是否廠商發票
     private Boolean invoice = false;
     //發票月份
@@ -31,17 +32,18 @@ public class Book {
     //小計
     private Integer subTotal;
     //專案名稱
-    private String projectName;
+    @ManyToOne(targetEntity = Project.class)
+    private Project project;
     //說明
     private String description;
     //備註
     private String remarks;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -109,12 +111,12 @@ public class Book {
         this.subTotal = subTotal;
     }
 
-    public String getProjectName() {
-        return projectName;
+    public Project getProject() {
+        return project;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public String getDescription() {
@@ -145,7 +147,7 @@ public class Book {
                 ", deposits=" + deposits +
                 ", remittance=" + remittance +
                 ", subTotal=" + subTotal +
-                ", projectName='" + projectName + '\'' +
+                ", project='" + project + '\'' +
                 ", description='" + description + '\'' +
                 ", remarks='" + remarks + '\'' +
                 '}';

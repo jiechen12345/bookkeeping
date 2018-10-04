@@ -1,29 +1,11 @@
-package com.oppo.dto;
+package com.oppo.request;
 
 import java.util.Date;
 
 /**
- * Created by JieChen on 2018/10/2.
+ * Created by JieChen on 2018/10/3.
  */
-public class BookDto {
-    public BookDto(){}
-    public BookDto(String id, Boolean invoice, String invYM, String invNo, Boolean paid, Date paidDat, Integer deposits, Integer remittance, Integer subTotal, Integer projectId, String projectName, String description, String remarks) {
-        this.id = id;
-        this.invoice = invoice;
-        this.invYM = invYM;
-        this.invNo = invNo;
-        this.paid = paid;
-        this.paidDat = paidDat;
-        this.deposits = deposits;
-        this.remittance = remittance;
-        this.subTotal = subTotal;
-        this.projectId = projectId;
-        this.projectName = projectName;
-        this.description = description;
-        this.remarks = remarks;
-    }
-
-    //流水號
+public class BookReq {
     private String id;
     //是否廠商發票
     private Boolean invoice = false;
@@ -41,8 +23,6 @@ public class BookDto {
     private Integer remittance;
     //小計
     private Integer subTotal;
-    //專案名稱
-    private Integer projectId;
     //專案名稱
     private String projectName;
     //說明
@@ -146,14 +126,6 @@ public class BookDto {
         this.remarks = remarks;
     }
 
-    public Integer getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Integer projectId) {
-        this.projectId = projectId;
-    }
-
     @Override
     public String toString() {
         return "BookDto{" +
@@ -166,7 +138,6 @@ public class BookDto {
                 ", deposits=" + deposits +
                 ", remittance=" + remittance +
                 ", subTotal=" + subTotal +
-                ", projectID='" + projectId + '\'' +
                 ", projectName='" + projectName + '\'' +
                 ", description='" + description + '\'' +
                 ", remarks='" + remarks + '\'' +
