@@ -12,6 +12,9 @@ public class Book {
     @Id
     @Column(length = 12)
     private String id;
+    //收支 收1支0
+    @Column(length = 1,nullable = false)
+    private String incomeOrExpend;
     //是否廠商發票
     private Boolean invoice = false;
     //發票月份
@@ -25,12 +28,9 @@ public class Book {
     //付款日期
     @Column(length = 6)
     private Date paidDat;
-    //存入金額
-    private Integer deposits;
-    //存款匯出
-    private Integer remittance;
-    //小計
-    private Integer subTotal;
+    //金額
+    private Integer amt;
+
     //專案名稱
     @ManyToOne(targetEntity = Project.class)
     private Project project;
@@ -87,28 +87,12 @@ public class Book {
         this.paidDat = paidDat;
     }
 
-    public Integer getDeposits() {
-        return deposits;
+    public Integer getAmt() {
+        return amt;
     }
 
-    public void setDeposits(Integer deposits) {
-        this.deposits = deposits;
-    }
-
-    public Integer getRemittance() {
-        return remittance;
-    }
-
-    public void setRemittance(Integer remittance) {
-        this.remittance = remittance;
-    }
-
-    public Integer getSubTotal() {
-        return subTotal;
-    }
-
-    public void setSubTotal(Integer subTotal) {
-        this.subTotal = subTotal;
+    public void setAmt(Integer amt) {
+        this.amt = amt;
     }
 
     public Project getProject() {
@@ -135,19 +119,26 @@ public class Book {
         this.remarks = remarks;
     }
 
+    public String getIncomeOrExpend() {
+        return incomeOrExpend;
+    }
+
+    public void setIncomeOrExpend(String incomeOrExpend) {
+        this.incomeOrExpend = incomeOrExpend;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
+                "id='" + id + '\'' +
+                ", incomeOrExpend='" + incomeOrExpend + '\'' +
                 ", invoice=" + invoice +
                 ", invYM='" + invYM + '\'' +
                 ", invNo='" + invNo + '\'' +
                 ", paid=" + paid +
                 ", paidDat=" + paidDat +
-                ", deposits=" + deposits +
-                ", remittance=" + remittance +
-                ", subTotal=" + subTotal +
-                ", project='" + project + '\'' +
+                ", amt=" + amt +
+                ", project=" + project +
                 ", description='" + description + '\'' +
                 ", remarks='" + remarks + '\'' +
                 '}';

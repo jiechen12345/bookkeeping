@@ -1,5 +1,6 @@
 package com.oppo.request;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -7,6 +8,8 @@ import java.util.Date;
  */
 public class BookReq {
     private String id;
+    //收支 收1支0
+    private String incomeOrExpend;
     //是否廠商發票
     private Boolean invoice = false;
     //發票月份
@@ -17,12 +20,8 @@ public class BookReq {
     private Boolean paid = false;
     //付款日期
     private Date paidDat;
-    //存入金額
-    private Integer deposits;
-    //存款匯出
-    private Integer remittance;
-    //小計
-    private Integer subTotal;
+    //金額
+    private Integer amt;
     //專案名稱
     private String projectName;
     //說明
@@ -78,28 +77,20 @@ public class BookReq {
         this.paidDat = paidDat;
     }
 
-    public Integer getDeposits() {
-        return deposits;
+    public String getIncomeOrExpend() {
+        return incomeOrExpend;
     }
 
-    public void setDeposits(Integer deposits) {
-        this.deposits = deposits;
+    public void setIncomeOrExpend(String incomeOrExpend) {
+        this.incomeOrExpend = incomeOrExpend;
     }
 
-    public Integer getRemittance() {
-        return remittance;
+    public Integer getAmt() {
+        return amt;
     }
 
-    public void setRemittance(Integer remittance) {
-        this.remittance = remittance;
-    }
-
-    public Integer getSubTotal() {
-        return subTotal;
-    }
-
-    public void setSubTotal(Integer subTotal) {
-        this.subTotal = subTotal;
+    public void setAmt(Integer amt) {
+        this.amt = amt;
     }
 
     public String getProjectName() {
@@ -128,16 +119,15 @@ public class BookReq {
 
     @Override
     public String toString() {
-        return "BookDto{" +
-                "id=" + id +
+        return "BookReq{" +
+                "id='" + id + '\'' +
+                ", incomeOrExpend='" + incomeOrExpend + '\'' +
                 ", invoice=" + invoice +
                 ", invYM='" + invYM + '\'' +
                 ", invNo='" + invNo + '\'' +
                 ", paid=" + paid +
                 ", paidDat=" + paidDat +
-                ", deposits=" + deposits +
-                ", remittance=" + remittance +
-                ", subTotal=" + subTotal +
+                ", amt=" + amt +
                 ", projectName='" + projectName + '\'' +
                 ", description='" + description + '\'' +
                 ", remarks='" + remarks + '\'' +

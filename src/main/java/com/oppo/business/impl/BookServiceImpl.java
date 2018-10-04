@@ -47,14 +47,13 @@ public class BookServiceImpl implements BookService {
                 .stream()
                 .map(it -> new BookDto(
                                 it.getId(),
+                                it.getIncomeOrExpend(),
                                 it.getInvoice(),
                                 it.getInvYM(),
                                 it.getInvNo(),
                                 it.getPaid(),
                                 it.getPaidDat(),
-                                it.getDeposits(),
-                                it.getRemittance(),
-                                it.getSubTotal(),
+                                it.getAmt(),
                                 it.getProject().getId(),
                                 it.getProject().getProjectName(),
                                 it.getDescription(),
@@ -71,13 +70,13 @@ public class BookServiceImpl implements BookService {
     private BookDto getBookDto(Book book) {
         BookDto bookDto = new BookDto();
         bookDto.setId(book.getId());
+        bookDto.setIncomeOrExpend(book.getIncomeOrExpend());
         bookDto.setInvoice(book.getInvoice());
         bookDto.setInvYM(book.getInvYM());
         bookDto.setInvNo(book.getInvNo());
         bookDto.setPaid(book.getPaid());
         bookDto.setPaidDat(book.getPaidDat());
-        bookDto.setDeposits(book.getDeposits());
-        bookDto.setRemittance(book.getRemittance());
+        bookDto.setAmt(book.getAmt());
         bookDto.setDescription(book.getDescription());
         bookDto.setRemarks(book.getRemarks());
 
