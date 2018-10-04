@@ -142,7 +142,7 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                     <!--<tr class="table table-striped table-sm">-->
-                    <tr class="table table-striped table-sm" align="center">
+                    <tr class="table table-striped table-sm" align="center" onclick="'queryOne(\''+${member.id}+'\')'">
                         <th>ID</th>
                         <th>廠商發票</th>
                         <th>廠商發票月份</th>
@@ -264,7 +264,9 @@
         )
         */
     }
-
+function queryOne() {
+    alert('queryOne');
+}
     //元件控制
     function invCl() {
         var invStatus=$('#invoice').val();
