@@ -14,49 +14,9 @@
     <!-- Custom styles for this tmemberlate -->
     <link href="/css/dashboard.css" rel="stylesheet"/>
     <link href="/css/bootstrap-table.css" rel="stylesheet">
+
 </head>
 <body th:inline="text">
-<script src="/js/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        //FirstClaAjax("0", "firstclassify");
-
-        $("#customerId").change(function(){
-            var customerId = $("#customerId option:selected").val();
-            findProjectByCustomerIdAjax(customerId)
-                //FirstClaAjax(val, "secondclassify");
-
-        });
-    });
-    function findProjectByCustomerIdAjax(customerId) {
-        $.ajax({
-            contentType: 'application/json; charset=UTF-8',
-            type: "post",
-            data:  JSON.stringify(customerId),
-            dataType: "json",
-            url: "/books/findProjectByCustomerId",
-            async:false,
-            success: function (data) {
-                alert(1);
-                var str = "";
-                $.each(data, function(index,value){   // 解析出data对应的Object数组
-                    alert(2);
-                    console.log(index+' '+value);
-                    str += "<option>" + value.name + "</option>";
-                });
-                // if ("secondclassify" == classify){
-                //     $("#secondclassify").empty();
-                //     $("#secondclassify").append("<option>----请选择----</option>");
-                // }
-                // $("#" + classify).append(str);
-            },
-            error: function(json){
-                alert(json);
-            }
-        });
-    }
-
-</script>
 <!--引入topbar-->
 <div th:replace="common/bar::top_bar"></div>
 <div class="container-fluid">
@@ -251,7 +211,7 @@
     </div>
 </div>
 
-
+<script src="/js/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <!-- Icons -->
